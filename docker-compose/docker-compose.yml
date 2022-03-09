@@ -20,7 +20,7 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile
       args:
-        COIN: ""
+        COIN: "KAR"
     restart: always
     container_name: 'blockscout'
     links:
