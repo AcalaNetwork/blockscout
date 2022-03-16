@@ -1,0 +1,20 @@
+version: '3.8'
+
+networks:
+  default:
+    name: db
+
+services:
+  postgres-db:
+    image: postgres:14
+    container_name: 'postgres-db'
+    ports:
+      - 15432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+volumes:
+  postgres-data:
+
