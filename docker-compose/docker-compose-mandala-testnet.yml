@@ -23,7 +23,7 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile
       args:
-        COIN: "KAR"
+        COIN: "ACA"
     restart: always
     container_name: 'blockscout'
     links:
@@ -33,7 +33,7 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file:
-      -  ./envs/common-blockscout-karura.env
+      -  ./envs/common-blockscout-mandala.env
     ports:
       - 4000:4000
 volumes:
