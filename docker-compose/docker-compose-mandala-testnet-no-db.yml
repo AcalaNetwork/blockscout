@@ -22,7 +22,7 @@ services:
       - ETHEREUM_JSONRPC_HTTP_URL=http://localhost:8545
       - SUBNETWORK=Mandala Chain
       - COIN=ACA
-      - SUPPORTED_CHAINS='[{"title":"Mandala testnet","url":"http://localhost:4000/","test_net?":true}]'
+      - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"http://localhost:4000/","test_net?":true}]
       - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
       - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
     ports:
