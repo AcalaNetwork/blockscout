@@ -25,7 +25,7 @@ services:
       args:
         COIN: "KAR"
     restart: always
-    container_name: 'blockscout'
+    container_name: 'blockscout-karura'
     links:
       - db:database
     #command: 'mix do ecto.create, ecto.migrate, phx.server'

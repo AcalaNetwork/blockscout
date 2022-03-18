@@ -9,7 +9,7 @@ services:
       args:
         COIN: "ACA"
     restart: always
-    container_name: 'blockscout'
+    container_name: 'blockscout-mandala'
     command: 'mix do ecto.create, ecto.migrate, phx.server'
     #command: 'mix phx.server'
     extra_hosts:
@@ -17,7 +17,7 @@ services:
     env_file:
       -  ./envs/common-blockscout-mandala.env
     environment:
-      DATABASE_URL: postgresql://postgres:@host.docker.internal:5432/blockscout?ssl=true
-      ECTO_USE_SSL: true
+      - DATABASE_URL=postgresql://postgres:@host.docker.internal:5432/blockscout?ssl=true
+      - ECTO_USE_SSL=true
     ports:
       - 4000:4000
