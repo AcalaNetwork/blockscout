@@ -1,10 +1,14 @@
 version: '3.8'
 
+networks:
+  default:
+    name: blockscout-karura
+
 services:
   db-karura:
     image: postgres:13.6
     restart: always
-    container_name: 'postgres-karura'
+    container_name: 'blockscout-postgres-karura'
     environment:
         POSTGRES_PASSWORD: 'postgres'
         POSTGRES_USER: 'postgres'
@@ -12,12 +16,12 @@ services:
     ports:
       - 7432:5432
     volumes:
-      - postgres-karura:/var/lib/postgresql/data
+      - blockscout-postgres-karura:/var/lib/postgresql/data
     #command: ["postgres", "-c", "log_statement=all"]
 
   blockscout-karura:
     depends_on:
-      - db
+      - db-karura
     image: blockscout/blockscout:${DOCKER_TAG:-latest}
     build:
       context: ..
@@ -44,4 +48,4 @@ services:
     ports:
       - 4000:4000
 volumes:
-  postgres-karura:
+  blockscout-postgres-karura:
