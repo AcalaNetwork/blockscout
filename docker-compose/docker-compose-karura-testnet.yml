@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  db:
+  db-karura:
     image: postgres:13.6
     restart: always
-    container_name: 'postgres'
+    container_name: 'postgres-karura'
     environment:
         POSTGRES_PASSWORD: 'postgres'
         POSTGRES_USER: 'postgres'
@@ -12,10 +12,10 @@ services:
     ports:
       - 7432:5432
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres-karura:/var/lib/postgresql/data
     #command: ["postgres", "-c", "log_statement=all"]
 
-  blockscout:
+  blockscout-karura:
     depends_on:
       - db
     image: blockscout/blockscout:${DOCKER_TAG:-latest}
@@ -27,7 +27,7 @@ services:
     restart: always
     container_name: 'blockscout-karura'
     links:
-      - db:database
+      - db-karura:database
     command: 'mix do ecto.create, ecto.migrate, phx.server'
     #command: 'mix phx.server'
     extra_hosts:
@@ -44,4 +44,4 @@ services:
     ports:
       - 4000:4000
 volumes:
-  postgres:
+  postgres-karura:

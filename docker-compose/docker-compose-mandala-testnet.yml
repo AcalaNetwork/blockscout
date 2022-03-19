@@ -1,10 +1,10 @@
 version: '3.8'
 
 services:
-  db:
+  db-mandala:
     image: postgres:13.6
     restart: always
-    container_name: 'postgres'
+    container_name: 'postgres-mandala'
     environment:
         POSTGRES_PASSWORD: 'postgres'
         POSTGRES_USER: 'postgres'
@@ -12,12 +12,12 @@ services:
     ports:
       - 7432:5432
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres-mandala:/var/lib/postgresql/data
     #command: ["postgres", "-c", "log_statement=all"]
 
-  blockscout:
+  blockscout-mandala:
     depends_on:
-      - db
+      - db-mandala
     image: blockscout/blockscout:${DOCKER_TAG:-latest}
     build:
       context: ..
@@ -27,7 +27,7 @@ services:
     restart: always
     container_name: 'blockscout-mandala'
     links:
-      - db:database
+      - db-mandala:database
     command: 'mix do ecto.create, ecto.migrate, phx.server'
     #command: 'mix phx.server'
     extra_hosts:
@@ -44,4 +44,4 @@ services:
     ports:
       - 4000:4000
 volumes:
-  postgres:
+  postgres-mandala:
