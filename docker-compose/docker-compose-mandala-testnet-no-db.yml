@@ -23,7 +23,7 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:@host.docker.internal:5432/blockscout?ssl=true
       - ECTO_USE_SSL=true
-      - ETHEREUM_JSONRPC_HTTP_URL=http://localhost:8545
+      - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:8545
       - SUBNETWORK=Mandala Chain
       - COIN=ACA
       - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"http://localhost:4000/","test_net?":true}]
