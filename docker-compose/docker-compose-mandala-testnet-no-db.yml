@@ -15,7 +15,8 @@ services:
     restart: always
     container_name: 'blockscout-mandala'
     command: 'mix do ecto.create, ecto.migrate, phx.server'
-    #command: 'mix phx.server'
+    #command: 'mix do ecto.create, ecto.migrate, phx.server'
+    command: 'mix phx.server'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file:
@@ -23,10 +24,10 @@ services:
     environment:
       - DATABASE_URL=postgresql://postgres:@host.docker.internal:5432/blockscout?ssl=true
       - ECTO_USE_SSL=true
-      - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:8545
+      - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:28545
       - SUBNETWORK=Mandala Chain
       - COIN=ACA
-      - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"http://localhost:4000/","test_net?":true}]
+      - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"https://blockscout.mandala.acala.network/","test_net?":true}]
       - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
       - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
     ports:
