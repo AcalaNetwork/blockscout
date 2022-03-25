@@ -27,7 +27,7 @@ services:
       - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:28545
       - SUBNETWORK=Mandala Chain
       - COIN=ACA
-      - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"https://blockscout.mandala.acala.network/","test_net?":true}]
+      - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"https://blockscout.mandala.acala.network/","test_net?":true},{"title":"Mandala testnet - subscan","url":"https://acala-testnet.subscan.io/","test_net?":true}]
       - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
       - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
     ports:
