@@ -49,6 +49,7 @@ defmodule Explorer.Chain.Import.Runner.Addresses do
     transactions_timeout = options[Runner.Transactions.option_key()][:timeout] || Runner.Transactions.timeout()
 
     update_transactions_options = %{timeout: transactions_timeout, timestamps: timestamps}
+
     changes_list_with_defaults =
       Enum.map(changes_list, fn change ->
         Enum.reduce(@row_defaults, change, fn {default_key, default_value}, acc ->
