@@ -1,9 +1,18 @@
 ## Current
 
 ### Features
+- [#5312](https://github.com/blockscout/blockscout/pull/5312) - Add OpenZeppelin proxy storage slot
+- [#5302](https://github.com/blockscout/blockscout/pull/5302) - Add specific tx receipt fields for the GoQuorum client
 - [#5268](https://github.com/blockscout/blockscout/pull/5268) - Contract names display improvement
 
 ### Fixes
+- [#5375](https://github.com/blockscout/blockscout/pull/5375) - Fix pending transactions fetcher
+- [#5342](https://github.com/blockscout/blockscout/pull/5342) - Fix 500 error on NF token page with nil metadata
+- [#5319](https://github.com/blockscout/blockscout/pull/5319), [#5357](https://github.com/blockscout/blockscout/pull/5357) - Empty blocks sanitizer performance improvement
+- [#5310](https://github.com/blockscout/blockscout/pull/5310) - Fix flash on reload in dark mode
+- [#5306](https://github.com/blockscout/blockscout/pull/5306) - Fix indexer bug
+- [#5300](https://github.com/blockscout/blockscout/pull/5300), [#5305](https://github.com/blockscout/blockscout/pull/5305) - Token instance page: general video improvements
+- [#5136](https://github.com/blockscout/blockscout/pull/5136) - Improve contract verification
 - [#5285](https://github.com/blockscout/blockscout/pull/5285) - Fix verified smart-contract bytecode twins feature
 - [#5269](https://github.com/blockscout/blockscout/pull/5269) - Address Page: Fix implementation address align
 - [#5264](https://github.com/blockscout/blockscout/pull/5264) - Fix bug with 500 response on `partial` sourcify status
@@ -12,6 +21,19 @@
 - [#5239](https://github.com/blockscout/blockscout/pull/5239) - Add accounting for block rewards in `getblockreward` api method
 
 ### Chore
+- [#5368](https://github.com/blockscout/blockscout/pull/5368) - Refactoring from SourcifyFilePathBackfiller
+- [#5367](https://github.com/blockscout/blockscout/pull/5367) - Resolve Prototype Pollution in minimist dependency
+- [#5366](https://github.com/blockscout/blockscout/pull/5366) - Fix Vyper smart-contract verification form tooltips
+- [#5341](https://github.com/blockscout/blockscout/pull/5341) - Remove unused broadcasts
+- [#5318](https://github.com/blockscout/blockscout/pull/5318) - Eliminate Jquery import from chart-loader.js
+- [#5317](https://github.com/blockscout/blockscout/pull/5317) - NPM audit
+- [#5303](https://github.com/blockscout/blockscout/pull/5303) - Besu: revertReason support in trace
+- [#5301](https://github.com/blockscout/blockscout/pull/5301) - Allow specific block keys for sgb/ava
+- [#5295](https://github.com/blockscout/blockscout/pull/5295) - CI pipeline: build and push Docker image to Docker Hub on every release
+- [#5290](https://github.com/blockscout/blockscout/pull/5290) - Bump ex_doc from 0.25.2 to 0.28.2
+- [#5289](https://github.com/blockscout/blockscout/pull/5289) - Bump ex_abi from 1.5.9 to 1.5.11
+- [#5288](https://github.com/blockscout/blockscout/pull/5288) - Makefile: find exact container by name
+- [#5287](https://github.com/blockscout/blockscout/pull/5287) - Docker: modify native token symbol
 - [#5286](https://github.com/blockscout/blockscout/pull/5286) - Change namespace for one of the SmartContractViewTest test
 - [#5260](https://github.com/blockscout/blockscout/pull/5260) - Makefile release task to prerelease and release task
 
