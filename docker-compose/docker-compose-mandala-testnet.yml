@@ -45,6 +45,8 @@ services:
       - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"https://blockscout.mandala.acala.network/","test_net?":true},{"title":"Mandala testnet - subscan","url":"https://acala-testnet.subscan.io/","test_net?":true}]
       - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
       - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
+      - FIRST_BLOCK=700000
+      - TRACE_FIRST_BLOCK=700000
     ports:
       - 4000:4000
 volumes:
