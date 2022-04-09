@@ -14,7 +14,6 @@ services:
         COIN: "ACA"
     restart: always
     container_name: 'blockscout-mandala'
-    command: 'mix do ecto.create, ecto.migrate, phx.server'
     #command: 'mix do ecto.create, ecto.migrate, phx.server'
     command: 'mix phx.server'
     extra_hosts:
