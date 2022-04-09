@@ -5,23 +5,7 @@ networks:
     name: blockscout-karura
 
 services:
-  db-karura:
-    image: postgres:13.6
-    restart: always
-    container_name: 'blockscout-postgres-karura'
-    environment:
-        POSTGRES_PASSWORD: 'postgres'
-        POSTGRES_USER: 'postgres'
-        POSTGRES_HOST_AUTH_METHOD: 'trust'
-    ports:
-      - 7432:5432
-    volumes:
-      - blockscout-postgres-karura:/var/lib/postgresql/data
-    #command: ["postgres", "-c", "log_statement=all"]
-
-  blockscout-karura:
-    depends_on:
-      - db-karura
+  blockscout-mandala:
     image: blockscout/blockscout:${DOCKER_TAG:-latest}
     build:
       context: ..
@@ -30,16 +14,15 @@ services:
         COIN: "KAR"
     restart: always
     container_name: 'blockscout-karura'
-    links:
-      - db-karura:database
-    command: 'mix do ecto.create, ecto.migrate, phx.server'
-    #command: 'mix phx.server'
+    #command: 'mix do ecto.create, ecto.migrate, phx.server'
+    command: 'mix phx.server'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file:
       -  ./envs/common-blockscout.env
     environment:
-      - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:8545
+      - DATABASE_URL=postgresql://postgres:@host.docker.internal:25432/blockscout
+      - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:28545
       - SUBNETWORK=Karura Chain
       - COIN=KAR
       - SUPPORTED_CHAINS=[{"title":"Acala testnet","url":"https://blockscout.acala-dev.aca-dev.network/","test_net?":true},{"title":"Karura testnet","url":"https://blockscout.karura-dev.aca-dev.network/","test_net?":true}]
@@ -47,5 +30,3 @@ services:
       - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
     ports:
       - 4000:4000
-volumes:
-  blockscout-postgres-karura:
