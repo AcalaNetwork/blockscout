@@ -34,7 +34,8 @@ $navbar-logo-width: auto !default;
       transition: $transition-cont;
 
       &:before {
-        background-color: $header-icon-border-color-hover;
+        // background-color: $header-icon-border-color-hover;
+        background-color: #ff4c3b;
         border-radius: 0 0 4px 4px;
         content: "";
         display: block;
