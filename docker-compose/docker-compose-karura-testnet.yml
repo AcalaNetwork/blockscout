@@ -45,6 +45,8 @@ services:
       - SUPPORTED_CHAINS=[{"title":"Acala testnet","url":"https://blockscout.acala-dev.aca-dev.network/","test_net?":true},{"title":"Karura testnet","url":"https://blockscout.karura-dev.aca-dev.network/","test_net?":true}]
       - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
       - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
+      - BLOCKSCOUT_VERSION=v4.1.2-beta
+      - RELEASE_LINK=https://github.com/blockscout/blockscout/releases/tag/v4.1.2-beta
     ports:
       - 4000:4000
 volumes:
