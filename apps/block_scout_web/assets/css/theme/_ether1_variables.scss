@@ -11,7 +11,7 @@ $footer-text-color: #fff;
 $footer-item-disc-color: $secondary;
 
 // dashboard
-$dashboard-line-color-price: $tertiary; // price left border
+$dashboard-line-color-price: #5A81FF; // price left border
 
 $dashboard-banner-chart-legend-value-color: $additional-font; // chart labels
 
@@ -19,9 +19,9 @@ $dashboard-stats-item-value-color: $additional-font; // stat values
 
 $dashboard-stats-item-border-color: $secondary; // stat border
 
-$dashboard-banner-gradient-start: $primary; // gradient begin
+$dashboard-banner-gradient-start: #2e2e34; // gradient begin
 
-$dashboard-banner-gradient-end: lighten($primary, 5); // gradient end
+$dashboard-banner-gradient-end: lighten($dashboard-banner-gradient-start, 5); // gradient end
 
 $dashboard-banner-network-plain-container-background-color: #4b021e; // stats bg
 

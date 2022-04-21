@@ -86,7 +86,7 @@ export function setupChart ($canvas, self, total) {
   const primaryColor = $('.stakes-progress-graph-thing-for-getting-color').css('color')
   const backgroundColors = [
     primaryColor,
-    'rgba(202, 199, 226, 0.5)'
+    // 'rgba(202, 199, 226, 0.5)'
   ]
   const data = total > 0 ? [self, total - self] : [0, 1]
 
