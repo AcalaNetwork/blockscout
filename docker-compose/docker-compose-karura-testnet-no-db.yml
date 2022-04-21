@@ -1,0 +1,32 @@
+version: '3.8'
+
+networks:
+  default:
+    name: blockscout-karura
+
+services:
+  blockscout-mandala:
+    image: blockscout/blockscout:${DOCKER_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+      args:
+        COIN: "KAR"
+    restart: always
+    container_name: 'blockscout-karura'
+    #command: 'mix do ecto.create, ecto.migrate, phx.server'
+    command: 'mix phx.server'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    env_file:
+      -  ./envs/common-blockscout.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:@host.docker.internal:25432/blockscout
+      - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:28545
+      - SUBNETWORK=Karura Chain
+      - COIN=KAR
+      - SUPPORTED_CHAINS=[{"title":"Acala testnet","url":"https://blockscout.acala-dev.aca-dev.network/","test_net?":true},{"title":"Karura testnet","url":"https://blockscout.karura-dev.aca-dev.network/","test_net?":true}]
+      - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
+      - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
+    ports:
+      - 4000:4000

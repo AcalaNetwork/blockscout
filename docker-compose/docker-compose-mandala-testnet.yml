@@ -1,0 +1,53 @@
+version: '3.8'
+
+networks:
+  default:
+    name: blockscout-mandala
+
+services:
+  db-mandala:
+    image: postgres:13.6
+    restart: always
+    container_name: 'blockscout-postgres-mandala'
+    environment:
+        POSTGRES_PASSWORD: 'postgres'
+        POSTGRES_USER: 'postgres'
+        POSTGRES_HOST_AUTH_METHOD: 'trust'
+    ports:
+      - 7432:5432
+    volumes:
+      - blockscout-postgres-mandala:/var/lib/postgresql/data
+    #command: ["postgres", "-c", "log_statement=all"]
+
+  blockscout-mandala:
+    depends_on:
+      - db-mandala
+    image: blockscout/blockscout:${DOCKER_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+      args:
+        COIN: "ACA"
+    restart: always
+    container_name: 'blockscout-mandala'
+    links:
+      - db-mandala:database
+    #command: 'mix do ecto.create, ecto.migrate, phx.server'
+    command: 'mix phx.server'
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    env_file:
+      -  ./envs/common-blockscout.env
+    environment:
+      - ETHEREUM_JSONRPC_HTTP_URL=http://host.docker.internal:28545
+      - SUBNETWORK=Mandala Chain
+      - COIN=ACA
+      - SUPPORTED_CHAINS=[{"title":"Mandala testnet","url":"https://blockscout.mandala.acala.network/","test_net?":true},{"title":"Mandala testnet - subscan","url":"https://acala-testnet.subscan.io/","test_net?":true}]
+      - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
+      - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
+      - FIRST_BLOCK=700000
+      - TRACE_FIRST_BLOCK=700000
+    ports:
+      - 4000:4000
+volumes:
+  blockscout-postgres-mandala:
