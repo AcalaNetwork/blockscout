@@ -5,9 +5,9 @@ $tertiary: #fff;
 $additional-font: #fff;
 
 $tile-body-a-color: $primary;
-$tile-type-block-color: $primary;
+$tile-type-block-color: $secondary;
 $tile-type-progress-bar-color: $primary;
-a.tile-title { color: $primary !important; }
+a.tile-title { color: $secondary !important; }
 
 // footer
 $footer-background-color: #282d31;
@@ -49,9 +49,9 @@ $btn-address-card-icon-color: $primary; // btn address color
 
 //links & tile
 $tile-body-a-color: $primary;
-$tile-type-block-color: $primary;
+$tile-type-block-color: $secondary;
 $tile-type-progress-bar-color: $primary;
-a.tile-title { color: $primary !important; }
+a.tile-title { color: $secondary !important; }
 
 // card
 $card-background-1: $primary;

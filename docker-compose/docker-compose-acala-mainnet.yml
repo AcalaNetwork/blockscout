@@ -47,6 +47,8 @@ services:
       - COIN=ACA
       - COIN_NAME=ACA
       - CHAIN_ID=787
+      - LOGO=/images/acala_logo.svg
+      - FOOTER_LOGO=/images/acala_logo.svg
       - JSON_RPC=https://eth-rpc-acala.aca-api.network
       - SECRET_KEY_BASE=b7ICxPjuotgM3Na3Dkw2DE+i46KZlG5HS9cBwywYX8XuCS5dGLkiQYWNN6Plgf88
       - SUPPORTED_CHAINS=[
