@@ -1,4 +1,4 @@
-$tile-type-block-color: $primary !default;
+$tile-type-block-color: $secondary !default;
 $tile-type-uncle-color: $cyan !default;
 $tile-type-reorg-color: $purple !default;
 $tile-type-emission-reward-color: $lilac !default;
@@ -23,20 +23,12 @@ $tile-body-a-color: #5959d8 !default;
 
     .tile-transaction-type-block {
       a {
-        @if ($label-color) {
-          color: $label-color;
-        } @else {
-          color: $color;
-        }
+        color: $color;
       }
     }
 
     .tile-label {
-      @if ($label-color) {
-        color: $label-color;
-      } @else {
-        color: $color;
-      }
+      color: $color;
     }
 
     .tile-status-label {
