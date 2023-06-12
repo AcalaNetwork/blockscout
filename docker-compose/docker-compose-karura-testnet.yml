@@ -46,6 +46,8 @@ services:
       - COIN=KAR
       - COIN_NAME=KAR
       - CHAIN_ID=596
+      - LOGO=/images/karura_logo.svg
+      - FOOTER_LOGO=/images/karura_logo.svg
       - JSON_RPC=https://eth-rpc-karura-testnet.aca-staging.network/
       - SECRET_KEY_BASE=jGycjbyD8pQf9ljOkslKlMrJMRa9Sojsuur5WzdtZV8w3xRMkC15LBHyhecRfPmg
       - SUPPORTED_CHAINS=[

@@ -11,7 +11,7 @@ $header-textfield-text-color: $header-links-color !default;
 $header-textfield-background-color: #f5f6fa !default;
 $header-textfield-magnifier-color: $header-links-color !default;
 $header-link-horizontal-padding: 0.71rem;
-$navbar-logo-height: auto !default;
+$navbar-logo-height: 20px !default;
 $navbar-logo-width: auto !default;
 $header-logo-text-color: #333 !default;
 
@@ -42,7 +42,7 @@ $header-logo-text-color: #333 !default;
       transition: $transition-cont;
 
       &:before {
-        background-color: $header-icon-border-color-hover;
+        background-color: #ff4c3b;
         border-radius: 0 0 4px 4px;
         content: "";
         display: block;
@@ -86,7 +86,7 @@ $header-logo-text-color: #333 !default;
         top: -1px;
 
         path {
-          fill: $header-icon-color;
+          fill: #5A81FF;
           transition: $transition-cont;
         }
       }
@@ -250,7 +250,7 @@ $header-logo-text-color: #333 !default;
 }
 
 .navbar-logo {
-  max-height: $navbar-logo-height;
+  max-height: 20px;
   width: $navbar-logo-width;
 }
 

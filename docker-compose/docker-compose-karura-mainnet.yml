@@ -46,6 +46,8 @@ services:
       - COIN=KAR
       - COIN_NAME=KAR
       - CHAIN_ID=686
+      - LOGO=/images/karura_logo.svg
+      - FOOTER_LOGO=/images/karura_logo.svg
       - JSON_RPC=https://eth-rpc-karura.aca-api.network
        - SECRET_KEY_BASE=7DnBT0I+fardSnB5h7Mf9UsvCIxLDaSLrjcnLnFIc8en+uoPPqwmb1oba2Fln/yu
       - SUPPORTED_CHAINS=[

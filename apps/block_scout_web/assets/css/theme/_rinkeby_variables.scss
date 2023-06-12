@@ -13,7 +13,7 @@ $footer-item-disc-color: $secondary;
 .footer-social-icons .footer-social-icon { color: $secondary; }
 
 // dashboard
-$dashboard-line-color-price: $tertiary; // price left border
+$dashboard-line-color-price: #5A81FF; // price left border
 
 $dashboard-banner-chart-legend-label-color: #89cae6;
 $dashboard-stats-item-label-color: #89cae6;
@@ -22,9 +22,9 @@ $dashboard-stats-item-value-color: #fff; // stat values
 
 $dashboard-stats-item-border-color: $tertiary; // stat border
 
-$dashboard-banner-gradient-start: $primary; // gradient begin
+$dashboard-banner-gradient-start: #2e2e34; // gradient begin
 
-$dashboard-banner-gradient-end: lighten($primary, 5); // gradient end
+$dashboard-banner-gradient-end: lighten($dashboard-banner-gradient-start, 5); // gradient end
 
 $dashboard-banner-network-plain-container-background-color: #1c476c; // stats bg
 
