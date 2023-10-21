@@ -66,6 +66,8 @@ services:
       - INDEXER_RECEIPTS_BATCH_SIZE=10
       - BLOCKSCOUT_VERSION=v5.1.5-beta
       - RELEASE_LINK=https://github.com/blockscout/blockscout/releases/tag/v5.1.5-beta
+      - RE_CAPTCHA_CLIENT_KEY=
+      - RE_CAPTCHA_SECRET_KEY=
     ports:
       - 4000:4000
     healthcheck:
