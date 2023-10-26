@@ -30,7 +30,7 @@ services:
         CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED: ""
         CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL: ""
         ADMIN_PANEL_ENABLED: ""
-        RELEASE_VERSION: 5.1.5
+        RELEASE_VERSION: 5.3.0
     restart: always
     stop_grace_period: 5m
     container_name: 'blockscout'
@@ -64,8 +64,8 @@ services:
       - INDEXER_TOKEN_BALANCES_BATCH_SIZE=10
       - INDEXER_COIN_BALANCES_BATCH_SIZE=10
       - INDEXER_RECEIPTS_BATCH_SIZE=10
-      - BLOCKSCOUT_VERSION=v5.1.5-beta
-      - RELEASE_LINK=https://github.com/blockscout/blockscout/releases/tag/v5.1.5-beta
+      - BLOCKSCOUT_VERSION=v5.3.0-beta
+      - RELEASE_LINK=https://github.com/blockscout/blockscout/releases/tag/v5.3.0-beta
     ports:
       - 4000:4000
     volumes:
