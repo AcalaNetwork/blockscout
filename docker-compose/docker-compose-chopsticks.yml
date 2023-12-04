@@ -1,0 +1,100 @@
+version: '3.8'
+
+networks:
+  default:
+    name: blockscout
+
+services:
+  redis-db:
+    image: 'redis:alpine'
+    ports:
+      - 6379:6379
+    container_name: redis-db
+    command: redis-server
+    volumes:
+      - redis-data:/data
+
+  postgres-db:
+    image: postgres:14
+    container_name: 'postgres-db'
+    command: postgres -c 'max_connections=200'
+    ports:
+      - 15432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U blockscout -d blockscout"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s 
+
+  blockscout:
+    depends_on:
+      - smart-contract-verifier
+      - redis-db
+      - postgres-db
+    image: blockscout/blockscout:5.3.2
+    restart: always
+    container_name: 'blockscout'
+    command: sh -c "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    env_file:
+      -  ./envs/common-blockscout.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@postgres-db:5432/blockscout
+      - ETHEREUM_JSONRPC_HTTP_URL=https://eth-rpc-tc9.aca-staging.network
+      - JSON_RPC=https://eth-rpc-tc9.aca-staging.network
+      - SUBNETWORK=Chopsticks Chain
+      - COIN=ACA
+      - COIN_NAME=ACA
+      - CHAIN_ID=595
+      - SECRET_KEY_BASE=WfZwTc46U251PKZaDKQd2XC0ntx3VyjB4de7PUZaNuV7ah5QtThTgZUn3VOuq7kJ
+      - SUPPORTED_CHAINS=[
+            {"title":"Acala mainnet","url":"https://blockscout.acala.network/","test_net?":false},
+            {"title":"Acala mainnet - subscan","url":"https://acala.subscan.io/","test_net?":false},
+            {"title":"Karura mainnet","url":"https://blockscout.karura.network/","test_net?":false},
+            {"title":"Karura mainnet - subscan","url":"https://karura.subscan.io/","test_net?":false},
+            {"title":"Mandala testnet","url":"https://blockscout.mandala.aca-staging.network","test_net?":true},
+            {"title":"Mandala testnet - subscan","url":"https://acala-testnet.subscan.io/","test_net?":true}
+          ]
+      - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
+      - INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER=true
+      - ACCOUNT_POOL_SIZE=20
+      - ACCOUNT_REDIS_URL=redis://redis-db:6379
+      - INDEXER_TOKEN_BALANCES_BATCH_SIZE=10
+      - INDEXER_COIN_BALANCES_BATCH_SIZE=10
+      - INDEXER_RECEIPTS_BATCH_SIZE=10
+      - BLOCKSCOUT_VERSION=v5.3.2-beta
+      - RELEASE_LINK=https://github.com/blockscout/blockscout/releases/tag/v5.3.2-beta
+      - RE_CAPTCHA_CLIENT_KEY=
+      - RE_CAPTCHA_SECRET_KEY=
+      - FIRST_BLOCK=1075843
+      - TRACE_FIRST_BLOCK=1075843
+    ports:
+      - 4000:4000
+    volumes:
+      - logs:/app/logs/
+
+  smart-contract-verifier:
+    extends:
+      file: ./services/docker-compose-smart-contract-verifier.yml
+      service: smart-contract-verifier
+
+  visualizer:
+    extends:
+      file: ./services/docker-compose-visualizer.yml
+      service: visualizer
+
+  sig-provider:
+    extends:
+      file: ./services/docker-compose-sig-provider.yml
+      service: sig-provider
+
+volumes:
+  ? redis-data
+  ? postgres-data
+  ? logs
