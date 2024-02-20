@@ -55,7 +55,7 @@ services:
             {"title":"Karura mainnet - subscan","url":"https://karura.subscan.io/","test_net?":false},
             {"title":"Acala testnet","url":"https://blockscout.acala-dev.aca-dev.network/","test_net?":true},
             {"title":"Karura testnet","url":"https://blockscout.karura-testnet.aca-staging.network/","test_net?":true},
-            {"title":"Mandala testnet","url":"blockscout.mandala.aca-staging.network","test_net?":true},
+            {"title":"Mandala testnet","url":"https://blockscout.mandala.aca-staging.network","test_net?":true},
             {"title":"Mandala testnet - subscan","url":"https://acala-testnet.subscan.io/","test_net?":true}
           ]
       - INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER=true
