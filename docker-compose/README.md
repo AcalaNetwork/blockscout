@@ -88,3 +88,7 @@ make stop
 ```
 
 ***Note***: Makefile uses the same .env files since it is running docker-compose services inside.
+
+## Run Acala Blockscout
+- run frontend: `docker run -p 3000:3000 --env-file ./envs/common-frontend.env ghcr.io/blockscout/frontend:v1.24.0`
+- run db and backend: `FRONT_PROXY_PASS=http://host.docker.internal:3000 docker compose up`

@@ -23,25 +23,56 @@ services:
     extends:
       file: ./services/backend.yml
       service: backend
-    build:
-      context: ..
-      dockerfile: ./docker/Dockerfile
-      args:
-        CACHE_EXCHANGE_RATES_PERIOD: ""
-        API_V1_READ_METHODS_DISABLED: "false"
-        DISABLE_WEBAPP: "false"
-        API_V1_WRITE_METHODS_DISABLED: "false"
-        CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED: ""
-        CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL: ""
-        ADMIN_PANEL_ENABLED: ""
-        RELEASE_VERSION: 6.1.0
+    # build:
+    #   context: ..
+    #   dockerfile: ./docker/Dockerfile
+    #   args:
+    #     CACHE_EXCHANGE_RATES_PERIOD: ""
+    #     API_V1_READ_METHODS_DISABLED: "false"
+    #     DISABLE_WEBAPP: "false"
+    #     API_V1_WRITE_METHODS_DISABLED: "false"
+    #     CACHE_TOTAL_GAS_USAGE_COUNTER_ENABLED: ""
+    #     CACHE_ADDRESS_WITH_BALANCES_UPDATE_INTERVAL: ""
+    #     ADMIN_PANEL_ENABLED: ""
+    #     RELEASE_VERSION: 6.1.0
     links:
       - db:database
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
     environment:
-        ETHEREUM_JSONRPC_HTTP_URL: http://host.docker.internal:8545/
-        ETHEREUM_JSONRPC_TRACE_URL: http://host.docker.internal:8545/
-        ETHEREUM_JSONRPC_WS_URL: ws://host.docker.internal:8545/
-        CHAIN_ID: '1337'
+      SUBNETWORK: Acala Chain
+      COIN: ACA
+      COIN_NAME: ACA
+      ACCOUNT_POOL_SIZE: 10
+      # INDEXER_TOKEN_BALANCES_BATCH_SIZE: 2
+      # INDEXER_COIN_BALANCES_BATCH_SIZE: 2
+
+      INDEXER_EMPTY_BLOCKS_SANITIZER_BATCH_SIZE: 2
+      INDEXER_CATCHUP_BLOCKS_BATCH_SIZE: 2
+      INDEXER_CATCHUP_BLOCKS_CONCURRENCY: 1
+      INDEXER_CATCHUP_BLOCK_INTERVAL: 30s
+      INDEXER_BLOCK_REWARD_BATCH_SIZE: 2
+      INDEXER_BLOCK_REWARD_CONCURRENCY: 1
+      INDEXER_RECEIPTS_BATCH_SIZE: 2
+      INDEXER_RECEIPTS_CONCURRENCY: 1
+      INDEXER_COIN_BALANCES_BATCH_SIZE: 2
+      INDEXER_COIN_BALANCES_CONCURRENCY: 1
+      INDEXER_TOKEN_CONCURRENCY: 1
+      INDEXER_TOKEN_BALANCES_BATCH_SIZE: 2
+      INDEXER_TOKEN_BALANCES_CONCURRENCY: 1
+      INDEXER_CATCHUP_MISSING_RANGES_BATCH_SIZE: 2   # 100000
+      MIN_MISSING_BLOCK_NUMBER_BATCH_SIZE: 2         # 100000
+      DENORMALIZATION_MIGRATION_BATCH_SIZE: 2          # 500
+      DENORMALIZATION_MIGRATION_CONCURRENCY: 1          # 10
+      RE_CAPTCHA_CLIENT_KEY: 
+      RE_CAPTCHA_SECRET_KEY: 
+
+      INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER: true
+      INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER: true
+      ETHEREUM_JSONRPC_HTTP_URL: http://host.docker.internal:8545/
+      ETHEREUM_JSONRPC_TRACE_URL: http://host.docker.internal:8545/
+      ETHEREUM_JSONRPC_WS_URL: ws://host.docker.internal:8545/
+      CHAIN_ID: 787
 
   visualizer:
     extends:
@@ -53,12 +84,14 @@ services:
       file: ./services/sig-provider.yml
       service: sig-provider
 
-  frontend:
-    depends_on:
-      - backend
-    extends:
-      file: ./services/frontend.yml
-      service: frontend
+  # frontend:
+  #   depends_on:
+  #     - backend
+  #   extra_hosts:
+  #     - 'host.docker.internal:host-gateway'
+  #   extends:
+  #     file: ./services/frontend.yml
+  #     service: frontend
 
   stats-db-init:
     extends:
@@ -82,7 +115,7 @@ services:
   proxy:
     depends_on:
       - backend
-      - frontend
+      # - frontend
       - stats
     extends:
       file: ./services/nginx.yml
