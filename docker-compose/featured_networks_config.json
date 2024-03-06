@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Mandala Testnet",
+        "url": "http://blockscout.mandala.aca-staging.network",
+        "group": "Testnets",
+        "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+    },
+    {
+      "title": "Mandala Testnet Subscan",
+      "url": "https://acala-testnet.subscan.io",
+      "group": "Testnets",
+      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+    },
+    {
+      "title": "Karura Testnet",
+      "url": "https://blockscout.karura-testnet.aca-staging.network",
+      "group": "Testnets",
+      "icon": "https://acala.network/static/media/Karura%20K%20Gradient.79f0acd7fdba29903fd01e203c035831.svg"
+    },
+    {
+      "title": "Acala Testnet",
+      "url": "https://blockscout.karura-testnet.aca-staging.network",
+      "group": "Testnets",
+      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+    },
+    {
+      "title": "Karura Mainnet",
+      "url": "https://blockscout.karura-testnet.aca-staging.network",
+      "group": "Mainnets",
+      "icon": "https://acala.network/static/media/Karura%20K%20Gradient.79f0acd7fdba29903fd01e203c035831.svg"
+    },
+    {
+      "title": "Karura Mainnet Subscan",
+      "url": "https://blockscout.karura-testnet.aca-staging.network",
+      "group": "Mainnets",
+      "icon": "https://acala.network/static/media/Karura%20K%20Gradient.79f0acd7fdba29903fd01e203c035831.svg"
+    },
+    {
+      "title": "Acala Mainnet",
+      "url": "https://blockscout.karura-testnet.aca-staging.network",
+      "group": "Mainnets",
+      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+    },
+    {
+      "title": "Acala Mainnet Subscan",
+      "url": "https://blockscout.karura-testnet.aca-staging.network",
+      "group": "Mainnets",
+      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+    }
+  ]
