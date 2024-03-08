@@ -1,0 +1,17 @@
+[
+    {
+      "author": "Mandala",
+      "id": "mandala-testnet",
+      "title": "Mandala Network",
+      "logo": "/static/apple-touch-icon.png",
+      "categories": [
+        "defi", "bridges"
+      ],
+      "shortDescription": "Acala is a cross-chain DeFi Hub for Polkadot.",
+      "site": "https://apps.acala.network/?endpoint=wss://mandala-tc9-rpc.aca-staging.network",
+      "description": "Acala is a cross-chain DeFi Hub for Polkadot.",
+      "url": "https://apps.acala.network/?endpoint=wss://mandala-tc9-rpc.aca-staging.network",
+      "external": true,
+      "internalWallet": false
+    }
+]
