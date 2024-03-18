@@ -69,6 +69,8 @@ services:
       - RE_CAPTCHA_SECRET_KEY=
     ports:
       - 4000:4000
+    volumes:
+      - logs:/app/logs/
     healthcheck:
       test: ["CMD-SHELL", "curl -sS 'http://localhost:4000/api/v1/health' | jq -e .healthy || exit 1"]
       interval: 10s
@@ -83,7 +85,6 @@ services:
       - AUTOHEAL_CONTAINER_LABEL=all
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - logs:/app/logs/
 
   smart-contract-verifier:
     extends:
