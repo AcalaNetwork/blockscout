@@ -145,10 +145,10 @@ services:
       NEXT_PUBLIC_API_PORT: 443
       NEXT_PUBLIC_STATS_API_HOST: https://stats.mandala.aca-staging.network
       NEXT_PUBLIC_VISUALIZE_API_HOST: https://visualize.mandala.aca-staging.network
-      NEXT_PUBLIC_NETWORK_LOGO: https://acala.network/static/media/Acala%20Horizontal%20Gradient.732165a11464919f6cdc.png
+      NEXT_PUBLIC_NETWORK_LOGO: https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/AcalaHorizontalGradient-BIdcpJz6.svg
       NEXT_PUBLIC_NETWORK_LOGO_DARK:
       FAVICON_GENERATOR_API_KEY: 87811573d5c5518da21c7c0b669f568bdd9e7004
-      NEXT_PUBLIC_NETWORK_ICON: https://acala.network/static/media/ACA.0fcdc69c8bbc75778db0ca5deff1bddc.svg
+      NEXT_PUBLIC_NETWORK_ICON: https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Acala.svg
       NEXT_PUBLIC_NETWORK_ICON_DARK:
       NEXT_PUBLIC_NAVIGATION_HIDDEN_LINKS: '["eth_rpc_api","rpc_api"]'
       NEXT_PUBLIC_HOMEPAGE_CHARTS: '["daily_txs","coin_price","market_cap", "tvl"]'

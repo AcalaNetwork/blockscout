@@ -3,48 +3,48 @@
         "title": "Mandala Testnet",
         "url": "http://blockscout.mandala.aca-staging.network",
         "group": "Testnets",
-        "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+        "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Acala.svg"
     },
     {
       "title": "Mandala Testnet Subscan",
       "url": "https://acala-testnet.subscan.io",
       "group": "Testnets",
-      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+      "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Acala.svg"
     },
     {
       "title": "Karura Testnet",
       "url": "https://blockscout.karura-testnet.aca-staging.network",
       "group": "Testnets",
-      "icon": "https://acala.network/static/media/Karura%20K%20Gradient.79f0acd7fdba29903fd01e203c035831.svg"
+      "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Karura.svg"
     },
     {
       "title": "Acala Testnet",
       "url": "https://blockscout.acala-dev.aca-dev.network/",
       "group": "Testnets",
-      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+      "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Acala.svg"
     },
     {
       "title": "Karura Mainnet",
       "url": "https://blockscout.karura.network",
       "group": "Mainnets",
-      "icon": "https://acala.network/static/media/Karura%20K%20Gradient.79f0acd7fdba29903fd01e203c035831.svg"
+      "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Karura.svg"
     },
     {
       "title": "Karura Mainnet Subscan",
       "url": "https://karura.subscan.io",
       "group": "Mainnets",
-      "icon": "https://acala.network/static/media/Karura%20K%20Gradient.79f0acd7fdba29903fd01e203c035831.svg"
+      "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Karura.svg"
     },
     {
       "title": "Acala Mainnet",
       "url": "https://blockscout.acala.network",
       "group": "Mainnets",
-      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+      "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Acala.svg"
     },
     {
       "title": "Acala Mainnet Subscan",
       "url": "https://acala.subscan.io",
       "group": "Mainnets",
-      "icon": "https://acala.network/static/media/Acala%20Gradient.e027e8c08262d2989e2596ec2867e81b.svg"
+      "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Acala.svg"
     }
   ]
