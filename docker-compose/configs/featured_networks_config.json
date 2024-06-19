@@ -19,7 +19,7 @@
     },
     {
       "title": "Acala Testnet",
-      "url": "https://blockscout.acala-dev.aca-dev.network/",
+      "url": "https://blockscout.acala-testnet.aca-staging.network/",
       "group": "Testnets",
       "icon": "https://raw.githubusercontent.com/AcalaNetwork/blockscout/develop/docker-compose/configs/Acala.svg"
     },
